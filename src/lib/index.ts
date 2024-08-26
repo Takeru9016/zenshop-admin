@@ -1,0 +1,1 @@
+export { prismadb } from "./prismadb";
