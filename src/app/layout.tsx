@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
 
 import "./globals.css";
+import { ModalProvider } from "@/providers";
 
 export const metadata: Metadata = {
   title: "ZenShop Admin Panel",
@@ -17,7 +18,8 @@ export default function RootLayout({
     <ClerkProvider afterSignOutUrl="/">
       <html lang="en">
         <body>
-          <div>{children}</div>
+          <ModalProvider />
+          {children}
         </body>
       </html>
     </ClerkProvider>
