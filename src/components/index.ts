@@ -1,4 +1,8 @@
-export { ModeToggle } from "./common/ModeToggle"
+export { default as ModeToggle } from "./navs/theme/ModeToggle"
 
-export { default as Modal } from "./Modals/Modal"
-export { default as StoreModal } from "./Modals/StoreModal"
+export { default as Modal } from "./modals/Modal"
+export { default as StoreModal } from "./modals/StoreModal"
+
+export { default as Navbar } from "./navs/Navbar"
+
+export { default as StoreSwitcher } from "./common/StoreSwitcher"

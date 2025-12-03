@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
 
 import "./globals.css";
-import { ModalProvider, ThemesProvider } from "@/providers";
+import { ModalProvider, ThemesProvider, ToastProvider } from "@/providers";
 
 export const metadata: Metadata = {
   title: "Zenshop - Admin Dashboard",
@@ -24,6 +24,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
+            <ToastProvider />
             <ModalProvider />
             {children}
           </ThemesProvider>
