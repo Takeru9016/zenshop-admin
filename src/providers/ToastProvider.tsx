@@ -3,5 +3,5 @@
 import { Toaster } from "@/components/ui/sonner";
 
 export default function ToastProvider() {
-  return <Toaster />;
+  return <Toaster position="top-center" richColors closeButton />;
 }

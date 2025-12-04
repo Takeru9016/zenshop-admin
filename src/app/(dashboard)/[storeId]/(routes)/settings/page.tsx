@@ -2,32 +2,35 @@ import { redirect } from "next/navigation";
 import { auth } from "@clerk/nextjs/server";
 
 import { prismadb } from "@/lib/prisma";
+import { SettingsForm } from "@/components";
 
-export default async function StorePage({
+export default async function SettingsPage({
   params,
 }: {
   params: Promise<{ storeId: string }>;
 }) {
   const { userId } = await auth();
-  const { storeId } = await params;
 
   if (!userId) {
-    redirect("/sign-in");
+    return redirect("/sign-in");
   }
 
   const store = await prismadb.store.findFirst({
     where: {
-      id: storeId,
+      id: (await params).storeId,
       userId,
     },
   });
 
+  if (!store) {
+    return redirect("/");
+  }
+
   return (
-    <main className="p-10">
-      <div className="text-2xl font-bold">
-        Store Dashboard Page : {store?.name}
+    <div className="flex-col">
+      <div className="flex-1 space-y-4 p-8 pt-6">
+        <SettingsForm initialData={store} />
       </div>
-      <div className="text-lg">Store ID: {store?.id}</div>
-    </main>
+    </div>
   );
 }

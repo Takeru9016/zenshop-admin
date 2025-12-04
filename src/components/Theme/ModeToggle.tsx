@@ -2,7 +2,7 @@
 
 import { useTheme } from "next-themes";
 
-import { ThemeToggleButton } from "@/components/navs/theme/ThemeToggleButton";
+import { ThemeToggleButton } from "@/components/theme/ThemeToggleButton";
 
 export default function ModeToggle() {
   const { resolvedTheme, setTheme } = useTheme();

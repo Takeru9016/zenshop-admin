@@ -14,6 +14,11 @@ export default function MainNavbar({
 
   const routes = [
     {
+      href: `/${params.storeId}`,
+      label: "Overview",
+      isActive: pathName === `/${params.storeId}`,
+    },
+    {
       href: `/${params.storeId}/settings`,
       label: "Settings",
       isActive: pathName === `/${params.storeId}/settings`,
