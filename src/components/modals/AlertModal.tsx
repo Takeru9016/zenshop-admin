@@ -31,7 +31,7 @@ export default function AlertModal({
   return (
     <Modal
       title="Are you sure?"
-      description="This action cannot be undone. This will permanently delete your store and all its data."
+      description="This action cannot be undone. This will permanently delete all its data."
       isOpen={isOpen}
       onClose={onClose}
     >

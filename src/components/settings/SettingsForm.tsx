@@ -25,11 +25,10 @@ import AlertModal from "@/components/modals/AlertModal";
 import { updateStore, deleteStore } from "@/actions/store";
 import useOrigin from "@/hooks/useOrigin";
 
+import { Store } from "../../../generated/prisma/client";
+
 interface SettingsFormProps {
-  initialData: {
-    id: string;
-    name: string;
-  };
+  initialData: Store;
 }
 
 const formSchema = z.object({
