@@ -12,9 +12,14 @@ export { default as SettingsForm } from "./settings/SettingsForm"
 export { default as StoreSwitcher } from "./common/StoreSwitcher"
 export { default as DataTable } from "./common/DataTable"
 
-
 export { default as BillboardClient } from "./billboards/BillboardClient"
 export { default as BillboardForm } from "./billboards/BillboardForm"
 export { default as CellAction } from "./billboards/CellAction"
 export { DataColumn } from "./billboards/DataColumn"
 export type { BillboardColumn } from "./billboards/DataColumn"
+
+export { default as CategoryClient } from "./categories/CategoryClient"
+export { default as CategoryForm } from "./categories/CategoryForm"
+export { default as CategoryCellAction } from "./categories/CategoryCellAction"
+export { CategoryDataColumn } from "./categories/CategoryDataColumn"
+export type { CategoryColumn } from "./categories/CategoryDataColumn"
