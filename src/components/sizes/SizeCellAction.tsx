@@ -5,7 +5,7 @@ import { useParams, useRouter } from "next/navigation";
 import { Copy, Edit, MoreHorizontal, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 
-import { CategoryColumn } from "@/components/categories/CategoryDataColumn";
+import { SizeColumn } from "@/components/sizes/SizeDataColumn";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -16,13 +16,13 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import AlertModal from "@/components/modals/AlertModal";
-import { deleteCategory } from "@/actions/category";
+import { deleteSize } from "@/actions/size";
 
-interface CategoryCellActionProps {
-  data: CategoryColumn;
+interface SizeCellActionProps {
+  data: SizeColumn;
 }
 
-export default function CategoryCellAction({ data }: CategoryCellActionProps) {
+export default function SizeCellAction({ data }: SizeCellActionProps) {
   const router = useRouter();
   const params = useParams();
   const [open, setOpen] = useState(false);
@@ -30,19 +30,19 @@ export default function CategoryCellAction({ data }: CategoryCellActionProps) {
 
   const onCopy = (description: string) => {
     navigator.clipboard.writeText(description);
-    toast.success("Category ID copied to clipboard");
+    toast.success("Size ID copied to clipboard");
   };
 
   const onDelete = async () => {
     try {
       setLoading(true);
       const storeId = params.storeId as string;
-      const result = await deleteCategory(data!.id, storeId);
+      const result = await deleteSize(data!.id, storeId);
 
       if (result.success) {
-        toast.success("Category deleted successfully");
+        toast.success("Size deleted successfully");
         router.refresh();
-        router.push(`/${storeId}/categories`);
+        router.push(`/${storeId}/sizes`);
       } else {
         toast.error(result.error || "Something went wrong");
       }
@@ -73,9 +73,7 @@ export default function CategoryCellAction({ data }: CategoryCellActionProps) {
           <DropdownMenuLabel>Actions</DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuItem
-            onClick={() =>
-              router.push(`/${params.storeId}/categories/${data.id}`)
-            }
+            onClick={() => router.push(`/${params.storeId}/sizes/${data.id}`)}
           >
             <Edit className="mr-2 h-4 w-4" />
             Update

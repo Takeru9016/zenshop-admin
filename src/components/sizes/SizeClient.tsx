@@ -7,17 +7,14 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import Heading from "@/components/common/Heading";
 import DataTable from "@/components/common/DataTable";
-import {
-  BillboardColumn,
-  DataColumn,
-} from "@/components/billboards/DataColumn";
 import ApiList from "@/components/common/ApiList";
+import { SizeColumn, SizeDataColumn } from "@/components/sizes/SizeDataColumn";
 
-interface BillboardClientProps {
-  data: BillboardColumn[];
+interface SizeClientProps {
+  data: SizeColumn[];
 }
 
-export default function BillboardClient({ data }: BillboardClientProps) {
+export default function SizeClient({ data }: SizeClientProps) {
   const router = useRouter();
   const params = useParams();
 
@@ -25,24 +22,21 @@ export default function BillboardClient({ data }: BillboardClientProps) {
     <>
       <div className="flex items-center justify-between">
         <Heading
-          title={`Billboards (${data.length})`}
-          description="Manage your billboards"
+          title={`Sizes (${data.length})`}
+          description="Manage your sizes"
         />
         <Button
           className="ml-auto"
-          onClick={() => router.push(`/${params.storeId}/billboards/new`)}
+          onClick={() => router.push(`/${params.storeId}/sizes/new`)}
         >
           <PlusCircle className="h-4 w-4" />
           Add New
         </Button>
       </div>
       <Separator />
-      <DataTable searchColumn="label" data={data} columns={DataColumn} />
-      <Heading title="API" description="API calls for billboards" />
-      <ApiList
-        entityName="billboards"
-        entityIdName="billboardId"
-      />
+      <DataTable searchColumn="name" data={data} columns={SizeDataColumn} />
+      <Heading title="API" description="API calls for Sizes" />
+      <ApiList entityName="sizes" entityIdName="sizeId" />
     </>
   );
 }
