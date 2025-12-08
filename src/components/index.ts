@@ -41,3 +41,7 @@ export { default as ProductsForm } from "./products/ProductsForm"
 export { default as ProductsCellAction } from "./products/ProductsCellAction"
 export { ProductsDataColumn } from "./products/ProductsDataColumn"
 export type { ProductsColumn } from "./products/ProductsDataColumn"
+
+export { default as OrdersClient } from "./orders/OrdersClient"
+export { OrdersDataColumn } from "./orders/OrdersDataColumn"
+export type { OrdersColumn } from "./orders/OrdersDataColumn"
