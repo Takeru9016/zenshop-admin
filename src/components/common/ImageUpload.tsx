@@ -27,6 +27,7 @@ export default function ImageUpload({
   }, []);
 
   const onUpload = (result: any) => {
+    console.log("Single upload completed:", result.info.secure_url);
     onChange(result.info.secure_url);
   };
 
@@ -63,7 +64,14 @@ export default function ImageUpload({
         ))}
       </div>
 
-      <CldUploadWidget onSuccess={onUpload} uploadPreset="zenshop-admin">
+      <CldUploadWidget
+        onSuccess={onUpload}
+        uploadPreset="zenshop-admin"
+        options={{
+          multiple: true,
+          maxFiles: 10,
+        }}
+      >
         {({ open }) => (
           <Button
             type="button"

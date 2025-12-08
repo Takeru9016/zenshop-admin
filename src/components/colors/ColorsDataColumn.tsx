@@ -22,12 +22,12 @@ export const ColorsDataColumn: ColumnDef<ColorsColumn>[] = [
     accessorKey: "value",
     header: "Value",
     cell: ({ row }) => (
-      <div className="flex items-center">
-        <span className="mr-2">{row.getValue("value")}</span>
+      <div className="flex items-center gap-x-2">
         <div
           className="h-6 w-6 rounded-full"
           style={{ backgroundColor: row.getValue("value") }}
         />
+        <span >{row.getValue("value")}</span>
       </div>
     ),
   },
